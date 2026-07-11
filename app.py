@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import requests
 from pathlib import Path
 
 # -----------------------------
@@ -14,12 +15,23 @@ st.set_page_config(
 )
 
 # -----------------------------
-# LOAD MODEL
+# LOAD MODEL (downloads from Hugging Face if not present locally)
 # -----------------------------
 MODEL_PATH = Path("backend/models/used_car_price_model.joblib")
 
+# TODO: replace with YOUR Hugging Face username/repo name
+HF_MODEL_URL = "https://huggingface.co/Malik7343/used-car-price-model1/resolve/main/used_car_price_model.joblib"
+
 @st.cache_resource
 def load_model():
+    if not MODEL_PATH.exists():
+        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with st.spinner("Downloading model (first run only)..."):
+            response = requests.get(HF_MODEL_URL, stream=True)
+            response.raise_for_status()
+            with open(MODEL_PATH, "wb") as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
     return joblib.load(MODEL_PATH)
 
 model = load_model()
