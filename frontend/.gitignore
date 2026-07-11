@@ -1,0 +1,33 @@
+# Python
+.venv/
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# ML Models
+models/
+backend/models/
+
+# Dataset
+dataset/
+
+# Reports
+reports/
+
+# Environment
+.env
+*.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

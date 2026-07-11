@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.card {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 20px !important;
+  backdrop-filter: blur(12px);
+}
+
+.title {
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 30px !important;
+}
+
+.result-card {
+  margin-top: 25px;
+  text-align: center;
+  padding: 25px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: white;
+}
+
+.price {
+  font-size: 40px;
+  font-weight: bold;
+}
